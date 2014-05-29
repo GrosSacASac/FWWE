@@ -1,1 +1,5 @@
-1
+1 Chaques joueurs dispose de 30 Points de vie
+2 Chaques joueurs dispose de 45 dans le deck et 15 dans le deck "terrain"
+3 Le mana est généré chaques tours en posant la carte du dessus du deck "terrain"
+4 
+5
