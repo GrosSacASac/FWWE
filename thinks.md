@@ -4,4 +4,5 @@
 4 Pas de deck avec trop peu de monstres 
 5 Limiter les deck rush 
 6 Pas de créatures déséquilibrées 
-7
+7 Faire piocher plus de cartes aux joueurs qui n'en ont pas en mains (relancer le jeu => le rendre plus dynamique)
+8
