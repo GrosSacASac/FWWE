@@ -1,41 +1,13 @@
 @charset "UTF-8";
 
-html {
-    background-color:#fff;
-}
-
-header{
-
-    text-transform: capitalize;
-    
-    }
-div{
-    display:inline-block;
-}
-
-li{
-    list-style-type: none;
-}
-
-*{
-    margin:0;
-    padding:0;
-    transition:1s;
-}
-*:unresolved {
-    border: 1px dashed red;
-    display: inline-block;
-    opacity:0.8;
-}
-
-
-
 div.zoom:hover{
     background-color: #ccffcc;
     width:213px;
     height:347px;
-    transform:rotate(2deg);
+    transform:rotate(0deg);
 }
+
+/*CARD CONTAINER*/
 div[is="fwwe-cardcontainer"]{
     width:160px;
     height:260px;
@@ -44,6 +16,7 @@ div[is="fwwe-cardcontainer"]{
     border-radius:1em;
 	cursor:pointer;
 }
+
 div[is="fwwe-cardcontainer"].visible .back{
     display:none;
 }
@@ -58,17 +31,18 @@ div[is="fwwe-cardcontainer"].hidden .face{
     display:none;
 }
 
-
+/*CARD*/
 div[is="fwwe-card"] {
     display:block;
-    width:160px;
-    height:260px;
+    width:100%;
+    height:100%;
 }
 
 div[is="fwwe-card"] * {
     font-size:0.8em;
     color: blue;
 }
+
 div[is="fwwe-card"] h1 {
     text-transform: capitalize;
     font-size: 1em;
@@ -78,16 +52,34 @@ div[is="fwwe-card"] h1 {
     display:inline;
     margin:0;
 }
+
 div.zoom:hover h1{
-    font-size:1.2em;
+    font-size:1.3em;
 }
+
 div[is="fwwe-card"] img {
     border-radius:0.7em;
+    border-width:1px;
+    width:100%;
+    height:60%;
+}
+
+div[is="fwwe-card"] div {
+    display:block;
+}
+
+div[is="fwwe-card"] div.typebanner ul{
+    background-color:#bbb;
 }
 
 div[is="fwwe-card"] ul {
     float:left;
     margin-right:0.3em;
+    display:none;
+}
+
+div.zoom:hover ul{
+    display:block;
 }
 
 div[is="fwwe-card"] ul li {
@@ -112,17 +104,29 @@ div[is="fwwe-card"] ul.types:after {
     font-weight:bold;
     content:":";
 }
+
 div[is="fwwe-card"] p.description {
-    display:inline-block;
+    display:none;
     font-style:italic;
     color: #444;
     font-size:0.7em;
-    
-}
-div[is="fwwe-card"] div {
-    display:block;
 }
 
-div[is="fwwe-card"] div.typebanner ul{
-    background-color:#bbb;
+div.zoom:hover p.description {
+    display:inline-block;
+}
+
+div[is="fwwe-card"] div.numbers {
+    display:block;
+    width:100%
+}
+
+div[is="fwwe-card"] div.numbers>div {
+    display:table-row;
+    border-width:2px;
+    border-style:solid;
+}
+
+div[is="fwwe-card"] div.numbers>div>*{
+    display:table-cell;
 }

@@ -5,8 +5,8 @@
     <title>[Title]</title>
     <meta name="description" content="" >
     <meta name="author" content="" >
-    
-    <link type="text/css" rel="stylesheet" href="css/css_1.css" media="screen">
+    <link type="text/css" rel="stylesheet" href="css/general.css" media="screen">
+    <link type="text/css" rel="stylesheet" href="css/app.css" media="screen">
 </head>
 <body>
 <template id="card_structure">
@@ -20,10 +20,14 @@
     <ul class="effects" title="effects"></ul>
     <p class="description" title="description"></p>
     <div class="numbers">
-        <span class="attack" title="attack"></span>
-        <span class="speed" title="speed"></span>
-        <span class="regeneration" title="regeneration"></span>
-        <span class="defense" title="defense"></span>
+        <div class="weak">
+            <span class="speed" title="speed"></span>
+            <span class="regeneration" title="regeneration"></span>
+        </div>
+        <div class="strong">
+            <span class="attack" title="attack"></span>
+            <span class="defense" title="defense"></span>
+        </div>
     </div>
 </template>
 <template id="card_container">
