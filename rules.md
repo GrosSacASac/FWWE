@@ -11,4 +11,5 @@
 11    "       "    peut jouer autant de sort que son mana disponible lui permet
 12 Tout mana consommé est engagé, le mana engagé est désengagé au début du tour de chaques joueurs, aprés la phase de pioche
 13 Le joueur qui n'a plus de points de vie perd la partie
-14
+14 Il ne peut y avoir plus de 3 exemplaires de la même carte dans le même paquet (sauf "terrain")
+15
