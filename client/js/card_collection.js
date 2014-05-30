@@ -1,0 +1,11 @@
+var cards=[{"cost":"2R",
+    "card_name":"Fire Warrior",
+    "foto":"fire_warrior.jpg",
+    "types":["soldier"],
+    "subtypes":["human","mage"],
+    "effects":[],
+    "description":"First card !\n What do you have to say ?",
+    "attack":2,
+    "speed":1,
+    "regeneration":0,
+    "defense":2}];

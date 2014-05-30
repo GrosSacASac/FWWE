@@ -1,0 +1,128 @@
+@charset "UTF-8";
+
+html {
+    background-color:#fff;
+}
+
+header{
+
+    text-transform: capitalize;
+    
+    }
+div{
+    display:inline-block;
+}
+
+li{
+    list-style-type: none;
+}
+
+*{
+    margin:0;
+    padding:0;
+    transition:1s;
+}
+*:unresolved {
+    border: 1px dashed red;
+    display: inline-block;
+    opacity:0.8;
+}
+
+
+
+div.zoom:hover{
+    background-color: #ccffcc;
+    width:213px;
+    height:347px;
+    transform:rotate(2deg);
+}
+div[is="fwwe-cardcontainer"]{
+    width:160px;
+    height:260px;
+    border-style:solid;
+    border-width:2px;
+    border-radius:1em;
+	cursor:pointer;
+}
+div[is="fwwe-cardcontainer"].visible .back{
+    display:none;
+}
+div[is="fwwe-cardcontainer"].hidden .back{
+    display:inline-block;
+}
+div[is="fwwe-cardcontainer"].visible .face{
+    display:inline-block;
+}
+
+div[is="fwwe-cardcontainer"].hidden .face{
+    display:none;
+}
+
+
+div[is="fwwe-card"] {
+    display:block;
+    width:160px;
+    height:260px;
+}
+
+div[is="fwwe-card"] * {
+    font-size:0.8em;
+    color: blue;
+}
+div[is="fwwe-card"] h1 {
+    text-transform: capitalize;
+    font-size: 1em;
+    font-family:"Verdana";
+    font-weight:900;
+    color:#300011;
+    display:inline;
+    margin:0;
+}
+div.zoom:hover h1{
+    font-size:1.2em;
+}
+div[is="fwwe-card"] img {
+    border-radius:0.7em;
+}
+
+div[is="fwwe-card"] ul {
+    float:left;
+    margin-right:0.3em;
+}
+
+div[is="fwwe-card"] ul li {
+    float:left;
+    color:#333;
+    margin-right:0.2em;
+}
+
+div[is="fwwe-card"] ul.subtypes li:after {
+    color:#333;
+    content:", ";
+}
+
+div[is="fwwe-card"] ul.types li {
+    color: #111;
+    font-weight:bold;
+    font-size:100%;
+}
+
+div[is="fwwe-card"] ul.types:after {
+    color: #111;
+    font-weight:bold;
+    content:":";
+}
+div[is="fwwe-card"] p.description {
+    display:inline-block;
+    font-style:italic;
+    color: #444;
+    font-size:0.7em;
+    
+}
+div[is="fwwe-card"] div {
+    display:block;
+}
+
+div[is="fwwe-card"] div.typebanner ul{
+    background-color:#bbb;
+}
