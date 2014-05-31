@@ -10,8 +10,10 @@
 </head>
 <body>
 <template id="card_structure">
-    <span class="cost" title="cost"></span>
-    <h1 class="card_name" title="Card Name"></h1>
+    <div class="top">
+        <span class="cost" title="cost"></span>
+        <h1 class="card_name" title="Card Name"></h1>
+    </div>
     <img class="foto" height="120" width="150">
     <div class="typebanner">
         <ul class="types" title="types"></ul>
@@ -20,14 +22,10 @@
     <ul class="effects" title="effects"></ul>
     <p class="description" title="description"></p>
     <div class="numbers">
-        <div class="weak">
-            <span class="speed" title="speed"></span>
-            <span class="regeneration" title="regeneration"></span>
-        </div>
-        <div class="strong">
-            <span class="attack" title="attack"></span>
-            <span class="defense" title="defense"></span>
-        </div>
+        <span class="attack" title="attack"></span>
+        <span class="speed" title="speed"></span>
+        <span class="regeneration" title="regeneration"></span>
+        <span class="defense" title="defense"></span>
     </div>
 </template>
 <template id="card_container">

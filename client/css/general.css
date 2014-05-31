@@ -1,16 +1,16 @@
 @charset "UTF-8";
 
-html {
+body{
     background-color:#fff;
 }
 
 header{
 
     text-transform: capitalize;
+}
     
-    }
-div{
-    display:inline-block;
+div, img {
+    display:block;
 }
 
 li{
@@ -20,7 +20,7 @@ li{
 *{
     margin:0;
     padding:0;
-    transition:1s;
+    transition:1.1s;
 }
 
 *:unresolved {
