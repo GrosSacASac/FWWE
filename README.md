@@ -10,9 +10,9 @@ http://www.mozilla.org/en-US/firefox/channel/#aurora
 
 
 ##We are searching for new collaborators
-[X] Game Designers
-[X] Developpers
-[ ] More developpers
-[ ] Image artist
-[ ] Sound artist
-[ ] Storywriter
+- [X] Game Designers
+- [X] Developpers
+- [ ] More developpers
+- [ ] Image artist
+- [ ] Sound artist
+- [ ] Storywriter
