@@ -1,5 +1,18 @@
-##New card game
+##New card game 
+(in early developpement stage)
 
-Developped with the latest Web technologies (HTML5, CSS, JS)
 Download Firefox Aurora to have a try:
 http://www.mozilla.org/en-US/firefox/channel/#aurora
+
+* Developped with the Web technologies (HTML, CSS, JS)
+* We use the latest technologies available(Webcomponents,CSS animation,...)
+* We are trying to make the best card game experience ever
+
+
+##We are searching for new collaborators
+[X] Game Designers
+[X] Developpers
+[ ] More developpers
+[ ] Image artist
+[ ] Sound artist
+[ ] Storywriter
