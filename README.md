@@ -11,8 +11,8 @@ http://www.mozilla.org/en-US/firefox/channel/#aurora
 
 ##We are searching for new contributors
 - [X] Game Designers
-- [X] Developpers
-- [ ] More developpers
+- [X] Developers
+- [ ] More developers
 - [ ] Image artist
 - [ ] Sound artist
 - [ ] Storywriter
