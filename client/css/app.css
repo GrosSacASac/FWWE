@@ -1,11 +1,5 @@
 @charset "UTF-8";
 
-div.zoom:hover{
-    background-color: #ccffcc;
-    width:213px;
-    height:347px;
-    transform:rotate(0deg);
-}
 
 /*CARD CONTAINER*/
 div[is="fwwe-cardcontainer"]{
@@ -18,31 +12,41 @@ div[is="fwwe-cardcontainer"]{
     display:inline-block;
 }
 
+div[is="fwwe-cardcontainer"].zoom.visible:hover{
+    background-color: #ccffcc;
+    width:213px;
+    height:347px;
+    transform:rotate(0deg);
+    
+}
+
 div[is="fwwe-cardcontainer"]>img{
     position:absolute;
     border-radius:1em;
-    width:100%;
-    height:100%;
-    
+    top:auto;
+    bottom:auto;
+    width:160px;
+    height:260px;
 }
+
 div[is="fwwe-cardcontainer"].hidden{
-    transform: perspective(800px) rotateY(180deg) translate3d(0px, 0px, 2px);
+    transform:  rotateY(180deg) ;
 }
 div[is="fwwe-cardcontainer"].visible .back{
-    transition:0.25s steps(1);
+    transition:opacity 0.25s steps(1);
     opacity:0;
 }
 div[is="fwwe-cardcontainer"].hidden .back{
-    transition:0.25s steps(1);
+    transition:opacity 0.25s steps(1);
     opacity:1;
 }
 div[is="fwwe-cardcontainer"].visible .face{
-    transition:0.25s steps(1);
+    transition:opacity 0.25s steps(1);
     opacity:1;
 }
 
 div[is="fwwe-cardcontainer"].hidden .face{
-    transition:0.25s steps(1);
+    transition:opacity 0.25s steps(1);
     opacity:0;
 }
 
