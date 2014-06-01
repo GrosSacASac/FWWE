@@ -56,7 +56,7 @@ var new_card = function (stats) {
         li;
     card_container.whenCreated();
     card.whenCreated();
-    document.querySelector('main').insertBefore(card_container, null);
+    document.querySelector('.battlefield').insertBefore(card_container, null);
     card_container.insertBefore(card, null);
     for (key in stats) {
         if (stats.hasOwnProperty(key)) {
@@ -81,13 +81,20 @@ var new_card = function (stats) {
             }
         }
     }
+    return card_container;
 };
 
 new_card(cards[0]);
 new_card(cards[0]);
 new_card(cards[0]);
 new_card(cards[0]);
-new_card(cards[0]);
+var last = new_card(cards[0]);
+
+var f = function(card_container) {
+    card_container.classList.toggle('visible');
+    card_container.classList.toggle('hidden');
+}
+
 var card1 = document.querySelector('div[is="fwwe-card"]');
 
 /*
