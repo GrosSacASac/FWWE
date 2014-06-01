@@ -1,6 +1,6 @@
 var cards=[{"cost":"2F",
     "card_name":"Fire Warrior",
-    "foto":"fire_warrior.jpg",
+    "foto":"image/firehand.jpg",
     "types":["soldier"],
     "subtypes":["human","mage"],
     "effects":["When self comes into the battlefield, it deals 1 damage to its controller","Loses 1 regen each turn"],
