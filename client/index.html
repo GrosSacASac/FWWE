@@ -2,19 +2,58 @@
 <html lang="en" dir="ltr">
 <head>
     <meta charset="utf-8">
-    <title>[Title]</title>
+    <title>*FWWEMD*</title>
     <meta name="description" content="" >
     <meta name="author" content="" >
     <link type="text/css" rel="stylesheet" href="css/general.css" media="screen">
     <link type="text/css" rel="stylesheet" href="css/app.css" media="screen">
 </head>
 <body>
-<template id="card_structure">
+<!-- Templates  ################################# -->
+<template id="soldier_structure">
     <div class="top">
         <span class="cost" title="cost"></span>
         <h1 class="card_name" title="Card Name"></h1>
     </div>
-    <img class="foto" height="120" width="150">
+    <img class="foto" height="120" width="150" alt="FOTO">
+    <div class="typebanner">
+        <ul class="types" title="types"></ul>
+        <ul class="subtypes" title="subtypes"></ul>
+    </div>
+    <ul class="effects" title="effects"></ul>
+    <p class="description" title="description"></p>
+    <div class="numbers">
+        <span class="attack" title="attack"></span>
+        <span class="speed" title="speed"></span>
+        <span class="regeneration" title="regeneration"></span>
+        <span class="defense" title="defense"></span>
+    </div>
+</template>
+<template id="spell_structure">
+    <div class="top">
+        <span class="cost" title="cost"></span>
+        <h1 class="card_name" title="Card Name"></h1>
+    </div>
+    <img class="foto" height="120" width="150" alt="FOTO">
+    <div class="typebanner">
+        <ul class="types" title="types"></ul>
+        <ul class="subtypes" title="subtypes"></ul>
+    </div>
+    <ul class="effects" title="effects"></ul>
+    <p class="description" title="description"></p>
+    <div class="numbers">
+        <span class="attack" title="attack"></span>
+        <span class="speed" title="speed"></span>
+        <span class="regeneration" title="regeneration"></span>
+        <span class="defense" title="defense"></span>
+    </div>
+</template>
+<template id="mana_source_structure">
+    <div class="top">
+        <span class="source" title="cost"></span>
+        <h1 class="card_name" title="Card Name"></h1>
+    </div>
+    <img class="foto" height="120" width="150" alt="FOTO">
     <div class="typebanner">
         <ul class="types" title="types"></ul>
         <ul class="subtypes" title="subtypes"></ul>
@@ -33,21 +72,41 @@
     <img class="back" src="image/back.jpg" alt="back">
 </template>
 
+<!-- Start  ################################# -->
 
-<header><noscript>We need JavaScript</noscript><p>Fire Water Wind Earth</p>
+<menu type="context" id="details">
+    <menuitem label="Description" onclick="show_description();">
+    </menuitem>
+</menu>
+
+<header>
+    <noscript>
+        We need JavaScript
+    </noscript>
+    <p>Fire Water Wind Earth Metal Darkness</p>
+    <p id="mouse_position"></p>
+    <p></p>
 </header>
 
 <main>
     <div class="battlefield">
+        <div class="hand">
+        </div>
+        <div class="hand">
+        </div>
     </div>
 </main>
 
-<aside>aside</aside>
-<footer><p>footer</p>
-<button onclick="f(last);">Click Me</button>
-<div>footer &gt; div</div></footer>
+<aside>
+</aside>
 
-<script src="js/card_collection.js" type="text/javascript"></script>
+<footer>
+    <button onclick="flip_container(last);">Click Me</button>
+</footer>
+
+<script src="js/soldier_cards.js" type="text/javascript"></script>
+<script src="js/spell_cards.js" type="text/javascript"></script>
+<script src="js/mana_source_cards.js" type="text/javascript"></script>
 <script src="js/custom.js" type="text/javascript"></script>
 </body>
 </html>

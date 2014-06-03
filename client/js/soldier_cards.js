@@ -1,4 +1,4 @@
-var cards=[{"cost":"2F",
+var soldier_cards=[{"cost":"2F",
     "card_name":"Fire Warrior",
     "foto":"image/firehand.jpg",
     "types":["soldier"],

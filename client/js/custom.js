@@ -1,52 +1,82 @@
 "use strict";
 document.registerElement = document.registerElement || document.register;
-var version = 0.01;
-var FWWECardProto = Object.create(HTMLDivElement.prototype);
-var FWWECardContainerProto = Object.create(HTMLDivElement.prototype);
+var VERSION = 0.02;
+document.card_count = 0;
+document.card_hovered = 0;/*doesn 't work*/
+var CARD_PROTO = Object.create(HTMLDivElement.prototype);
+var CARD_CONTAINER_PROTO = Object.create(HTMLDivElement.prototype);
+var mouse_position = document.getElementById("mouse_position");
+document.addEventListener('mousemove', function(event){
+    mouse_position.innerHTML = "Mouse x: " + event.clientX + "; y " + event.clientY;
+},false);    
 
+/*
+CARD_PROTO.whenCreated = function () {
+    return false;
+};*/
 
-
-FWWECardProto.whenCreated = function () {
-    var clone = document.importNode(document.querySelector('#card_structure').content, true);
-    //this.createShadowRoot().appendChild(clone);
-    this.setAttribute("class","face");
-    this.appendChild(clone);
-    console.log(".whenCreated() is called");
-};
-
-FWWECardContainerProto.whenCreated = function () {
+CARD_CONTAINER_PROTO.whenCreated = function () {
     var clone = document.importNode(document.querySelector('#card_container').content, true);
     this.setAttribute("class","visible zoom");
+    this.setAttribute("contextmenu","details");
+    this.setAttribute("id",document.card_count.toString());
+    
     this.appendChild(clone);
-    console.log("");
 };
-//FWWECardProto.created = FWWECardProto.whenCreated;
-//FWWECardProto.createdCallback = FWWECardProto.whenCreated;
+
+
+var SOLDIER_CARD_PROTO = Object.create(HTMLDivElement.prototype);
+SOLDIER_CARD_PROTO.whenCreated = function () {
+    var clone = document.importNode(document.querySelector('#soldier_structure').content, true);
+    this.setAttribute("class","face");
+    this.appendChild(clone);
+};
+var SPELL_CARD_PROTO = Object.create(HTMLDivElement.prototype);
+SPELL_CARD_PROTO.whenCreated = function () {
+    var clone = document.importNode(document.querySelector('#spell_structure').content, true);
+    this.setAttribute("class","face");
+    this.appendChild(clone);
+};
+var MANA_SOURCE_CARD_PROTO = Object.create(HTMLDivElement.prototype);
+MANA_SOURCE_CARD_PROTO.whenCreated = function () {
+    var clone = document.importNode(document.querySelector('#mana_source_structure').content, true);
+    this.setAttribute("class","face");
+    this.appendChild(clone);
+};
+//CARD_PROTO.created = CARD_PROTO.whenCreated;
+//CARD_PROTO.createdCallback = CARD_PROTO.whenCreated;
 /*
 other natural methods waiting for more browser support
 attachedCallback
 detachedCallback
 createdCallback instead of whenCreated
 */
-// 2. Define a property read-only "bar".
-Object.defineProperty(FWWECardProto, "bar", {value: 5});
 
 //Register
-var FWWECard = document.registerElement('fwwe-card', {
-    prototype: FWWECardProto,
+
+var CardContainer = document.registerElement('card-container', {
+    prototype: CARD_CONTAINER_PROTO,
     extends: 'div'
 });
 
-var FWWECardContainer = document.registerElement('fwwe-cardcontainer', {
-    prototype: FWWECardContainerProto,
+var SOLDIER_CARD = document.registerElement('soldier-card', {
+    prototype: SOLDIER_CARD_PROTO,
+    extends: 'div'
+});
+var SPELL_CARD = document.registerElement('spell-card', {
+    prototype: SPELL_CARD_PROTO,
+    extends: 'div'
+});
+var MANA_SOURCE_CARD = document.registerElement('mana-source-card', {
+    prototype: MANA_SOURCE_CARD_PROTO,
     extends: 'div'
 });
 
-
-var new_card = function (stats) {
+var new_card = function (card_type,stats) {
+    document.card_count++;
     console.log("creating a new card");
-    var card = new FWWECard(),
-        card_container = new FWWECardContainer(),
+    var card = new card_type(),
+        card_container = new CardContainer(),
         value,
         property_container,
         len,
@@ -83,19 +113,30 @@ var new_card = function (stats) {
     }
     return card_container;
 };
-
-new_card(cards[0]);
-new_card(cards[0]);
-new_card(cards[0]);
-new_card(cards[0]);
-var last = new_card(cards[0]);
-
-var f = function(card_container) {
+var flip_container = function(card_container) {
     card_container.classList.toggle('visible');
     card_container.classList.toggle('hidden');
-}
+};
+var show_description = function(){
+    /*marche pas 
+    
+    console.log("#" + document.card_hovered + " .description");
+    console.log(document.querySelector( "#" + document.card_hovered + " .description"));
+    alert(document.querySelector("#" + document.card_hovered + " .description").innerHTML.toString());
+    */
+    alert("Come back later");
+};
 
-var card1 = document.querySelector('div[is="fwwe-card"]');
+new_card(MANA_SOURCE_CARD, mana_source_cards[0]);
+new_card(SOLDIER_CARD, soldier_cards[0]);
+new_card(SPELL_CARD, spell_cards[0]);
+var last = new_card(SOLDIER_CARD, soldier_cards[0]);
+new_card(MANA_SOURCE_CARD,mana_source_cards[0]);
+new_card(MANA_SOURCE_CARD, mana_source_cards[0]);
+
+
+
+var card1 = document.querySelector('div[is="soldier-card"]');
 
 /*
 var shadow = card1.createShadowRoot();
