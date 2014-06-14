@@ -4,10 +4,43 @@ body{
     background-color:#fff;
 }
 
+*{
+    margin:0;
+    padding:0;
+    transition:1s;/*
+    -moz-user-select: none;
+    user-select: none;*/
+}
+
 header{
 
-    text-transform: capitalize;
+    width:80%;
+    height:5%;
+    position:absolute;
+    top:0%;
+    background-color:#aabbee;
+    
 }
+
+header>*{
+    text-transform: capitalize;
+    display:inline;
+    }
+    
+footer{
+
+    width:80%;
+    height:5%;
+    position:absolute;
+    bottom:0%;
+    background-color:#aabbee;
+    
+}
+
+footer>*{
+    
+    display:inline;
+    }
     
 div, img {
     display:block;
@@ -17,14 +50,40 @@ li{
     list-style-type: none;
 }
 
-*{
-    margin:0;
-    padding:0;
-    transition:1s;
-}
 
+/*
 *:unresolved {
     border: 1px dashed red;
     display: inline-block;
     opacity:0.8;
+}*/
+
+aside{
+    position:absolute;
+    right:0%;
+    top:6%;
+    font-family:Arial;
+    transform:rotate(45deg);
+    border-bottom: brown 2px dashed ;
+    
 }
+#githublink{
+    text-decoration:none;
+    padding:1em;
+}
+
+#game{
+    width:95%;
+    height:100%;
+    background-color:#eedd11;
+    position:absolute;
+}
+
+#not_game{
+    width:80%;
+    left:10%;
+    position:absolute;
+    top:100%;
+    background-color:#ccc;
+}
+    

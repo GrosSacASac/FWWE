@@ -8,18 +8,22 @@ var CARD_CONTAINER_PROTO = Object.create(HTMLDivElement.prototype);
 var mouse_position = document.getElementById("mouse_position");
 document.addEventListener('mousemove', function(event){
     mouse_position.innerHTML = "Mouse x: " + event.clientX + "; y " + event.clientY;
-},false);    
+},false);
 
 /*
 CARD_PROTO.whenCreated = function () {
     return false;
 };*/
+function click_card(event){
+    console.log(event.currentTarget); 
+};
 
 CARD_CONTAINER_PROTO.whenCreated = function () {
     var clone = document.importNode(document.querySelector('#card_container').content, true);
     this.setAttribute("class","visible zoom");
     this.setAttribute("contextmenu","details");
     this.setAttribute("id",document.card_count.toString());
+    this.addEventListener('mousedown',click_card,false );
     
     this.appendChild(clone);
 };
@@ -86,7 +90,7 @@ var new_card = function (card_type,stats) {
         li;
     card_container.whenCreated();
     card.whenCreated();
-    document.querySelector('.battlefield').insertBefore(card_container, null);
+    document.querySelector('#hand2').insertBefore(card_container, null);
     card_container.insertBefore(card, null);
     for (key in stats) {
         if (stats.hasOwnProperty(key)) {
