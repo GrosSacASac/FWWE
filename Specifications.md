@@ -4,8 +4,8 @@
 1. [Introduction](#introduction)
 2. [Functional specification](#functional-specification) (v1)
 3. How will it look like
-4. Technical architecture
-5. Work flow
+4. [Technical architecture](#technical-architecture)
+5. [Work flow](#work-flow)
 
 ##Introduction
 ###Where does the idea come from ?
@@ -110,7 +110,7 @@ Here are the card types with their attributes:
 * __React__: Whenever your opponent calls a slow card you can react and call a fast spell before
 
 ####Source
-
+Mana source allow you to pay the necessary cost for all other cards.
 
 ###Fields
 Objects can be in the following fields, the number is the maximum size, number + is a minimum:
@@ -126,10 +126,41 @@ Objects can be in the following fields, the number is the maximum size, number +
 
 
 
+##Technical architecture
+
+To support multi-player we will use a dynamic server that will make the link between the two players. The same game will run simultaneously on clients (browsers) and server. Every time a player makes an action the it will be checked
+
+1. client-side
+2. server-side if 1. passes
+3. server will confirm and send message to both clients if 2. passes
+4. Whenever a confirmation message is sent or received the action will take place
+5. on client sides, wait for next action
+
+That way the clients cannot make actions that are not allowed in the untouchable server rules even if they changes the local JavaScript.
+
+More details are coming here soon !
 
 
 
 
+##Work flow
 
+Construction is the game under construction with the latest upgrades. Production is the game that is playable with all testing and optimizing done. There will be no production version until the first beta.
 
+###Cycles
+1. [Construction](#construction)
+    1. Change file(s)
+    2. Commit changes
+    3. Go to 1.
+2. [Production](#production)
+    1. Copy the construction branch
+    2. Make sure all tests pass
+    3. Reduce the size of all medias to optimize speed
+    4. Minify all text files
+    5. Send to the public servers
+    6. Wait until the construction branch has made significant changes and go to 1.
 
+###File naming
+
+All files and folder except special ones should be named with 0 space and with lowercase and linked with underscores ( _ ) . They should end with their appropriate extension (.html , .css , .md , .png). A valid filename can be __spell_cards.js__
+JavaScript files containing a single object should have the same name as the object.
