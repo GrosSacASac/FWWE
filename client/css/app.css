@@ -2,6 +2,32 @@
 
 
 /*CARD CONTAINER*/
+#game_header{
+
+    width:80%;
+    height:5%;
+    position:absolute;
+    top:0%;
+    background-color:#aabbee;
+}
+
+#game_header>*{
+    text-transform: capitalize;
+    display:inline;
+}
+
+#game_footer{
+    width:80%;
+    height:5%;
+    position:absolute;
+    bottom:0%;
+    background-color:#aabbee;
+}
+
+#game_footer>*{
+    display:inline;
+    }
+
 #battlefield{
     position:absolute;
     width:80%;
@@ -11,14 +37,39 @@
 }
 
 
-#hand1{
+#hand_1{
     top:5%;
-    }
+}
     
-#hand2{
+#hand_2{
     bottom:5%;
-    }
+}
     
+    
+#deck_builder{
+    position:fixed;
+    z-index:15;
+    top:7%;
+    width:80%;
+    height:90%;
+    left:10%;
+    background-color:#102f35;
+}
+
+#deck_builder.hidden{
+    top:-100%;
+}
+
+
+#game_side{
+    position:absolute;
+    width:15%;
+    height:100%;
+    left:81%;
+    background-color:#442211;
+    top:0%;
+}
+
 .hand{
     position:absolute;
     width:80%;
@@ -39,7 +90,7 @@ div[is="card-container"]{
     bottom:0;
 }
 
-div[is="card-container"].zoom.visible:hover{
+div[is="card-container"].zoom:not(.hidden):hover{
     background-color: #ccffcc;
     width:24%;
     height:300%;
@@ -60,7 +111,7 @@ div[is="card-container"]>img{
 div[is="card-container"].hidden{
     transform:  rotateY(180deg) ;
 }
-div[is="card-container"].visible .back{
+div[is="card-container"] .back{
     transition:opacity 0.25s steps(1);
     opacity:0;
 }
@@ -68,7 +119,7 @@ div[is="card-container"].hidden .back{
     transition:opacity 0.25s steps(1);
     opacity:1;
 }
-div[is="card-container"].visible .face{
+div[is="card-container"] .face{
     transition:opacity 0.25s steps(1);
     opacity:1;
 }

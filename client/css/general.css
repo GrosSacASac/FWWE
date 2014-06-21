@@ -5,43 +5,33 @@ body{
 }
 
 *{
+    z-index:2;
     margin:0;
     padding:0;
-    transition:1s;/*
+    transition:1s;
+    border-radius:0.5em;/*
     -moz-user-select: none;
     user-select: none;*/
 }
 
-header{
-
-    width:80%;
-    height:5%;
-    position:absolute;
-    top:0%;
-    background-color:#aabbee;
-    
+fieldset {
+    display:block;
+    border:none;
 }
 
-header>*{
-    text-transform: capitalize;
-    display:inline;
-    }
+fieldset>*{
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
     
-footer{
-
-    width:80%;
-    height:5%;
-    position:absolute;
-    bottom:0%;
-    background-color:#aabbee;
-    
+label{
+    cursor:pointer;
 }
 
-footer>*{
-    
-    display:inline;
-    }
-    
+textarea {
+    transition:0s;
+}
+
 div, img {
     display:block;
 }
@@ -50,7 +40,9 @@ li{
     list-style-type: none;
 }
 
-
+a:hover{
+    color:#ff2233;
+}
 /*
 *:unresolved {
     border: 1px dashed red;
@@ -58,18 +50,26 @@ li{
     opacity:0.8;
 }*/
 
-aside{
+#follow{
+    z-index:5;
     position:absolute;
-    right:0%;
-    top:6%;
-    font-family:Arial;
     transform:rotate(45deg);
-    border-bottom: brown 2px dashed ;
     
+    background-color: #E47600;
+    font-weight: bold;
+    text-align: center;
+    padding: 0.5em 1.2em 0em 1.2em;
+    right: 0em;
+    top: 3em;
+    box-shadow: 0px 0px 5px 5px rgba(50, 50, 50, 0.5);
+    text-shadow: 0px 0px 2px #FFF;
+    text-decoration: none;
+    font: 300 14px/1.5 Lato,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: #555;
 }
 
 #githublink{
-    text-decoration:none;
+    text-align: center;
     padding:1em;
 }
 

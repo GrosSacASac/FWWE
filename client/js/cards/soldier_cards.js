@@ -1,4 +1,5 @@
-var soldier_cards=[{"cost":"2F",
+var soldier_cards=[{
+    "cost":"2F",
     "card_name":"Fire Warrior",
     "foto":"image/firehand.jpg",
     "types":["soldier"],
@@ -8,4 +9,5 @@ var soldier_cards=[{"cost":"2F",
     "attack":2,
     "speed":1,
     "regeneration":0,
-    "defense":2}];
+    "defense":2}
+    ];

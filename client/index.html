@@ -13,9 +13,9 @@
 <template id="soldier_structure">
     <div class="top">
         <span class="cost" title="cost"></span>
-        <h1 class="card_name" title="Card Name"></h1>
+        <h1 class="card_name" title="Card Name">Card Name</h1>
     </div>
-    <img class="foto" height="120" width="150" alt="FOTO">
+    <img class="foto" alt="" src="">
     <div class="typebanner">
         <ul class="types" title="types"></ul>
         <ul class="subtypes" title="subtypes"></ul>
@@ -32,9 +32,9 @@
 <template id="spell_structure">
     <div class="top">
         <span class="cost" title="cost"></span>
-        <h1 class="card_name" title="Card Name"></h1>
+        <h1 class="card_name" title="Card Name">Card Name</h1>
     </div>
-    <img class="foto" alt="FOTO">
+    <img class="foto" alt="" src="">
     <div class="typebanner">
         <ul class="types" title="types"></ul>
         <ul class="subtypes" title="subtypes"></ul>
@@ -51,9 +51,9 @@
 <template id="mana_source_structure">
     <div class="top">
         <span class="source" title="cost"></span>
-        <h1 class="card_name" title="Card Name"></h1>
+        <h1 class="card_name" title="Card Name">Card Name</h1>
     </div>
-    <img class="foto" height="120" width="150" alt="FOTO">
+    <img class="foto" alt="" src="">
     <div class="typebanner">
         <ul class="types" title="types"></ul>
         <ul class="subtypes" title="subtypes"></ul>
@@ -73,32 +73,63 @@
 </template>
 
 <!-- Start  ################################# -->
+<form name="f_context">
+    <menu type="context" id="details">
+        <menuitem label="Description" onclick="show_description();">
+        </menuitem>
+    </menu>
+</form>
+<nav id="follow">
+    <a id="githublink" href="https://github.com/GrosSacASac/FWWE">Go to Github</a>
+</nav>
 
-<menu type="context" id="details">
-    <menuitem label="Description" onclick="show_description();">
-    </menuitem>
-</menu>
 <div id="game">
-    <header>
+    <header id="game_header">
         <p>header</p>
         <button onclick="flip_container(last);">Click Me</button>
+        <button id="create_new_deck" >New deck</button>
         <p id="mouse_position"></p>
     </header>
 
-
+    
+    
+    <aside id="deck_builder" class="hidden">
+        <header>
+            <h1>Build your deck</h1>
+        </header>
+        <div>
+            <form>
+                <fieldset>
+                    <label for="deck_name">NAME</label>
+                    <input id="deck_name" type="text" name="deck_name" value="" placeholder="[Deck Name]" maxlength="15">
+                </fieldset>
+                <fieldset>
+                    <label for="deck_a">Main</label><input id="deck_a" type="radio" name="deck_selected" value="deck_a" checked="checked" > 
+                    <label for="deck_b">Mana</label><input id="deck_b" type="radio" name="deck_selected" value="deck_b">
+                </fieldset>
+                <fieldset>
+                    <label for="deck_comment">Comments</label><textarea id="deck_comment" type="radio" name="deck_comment" ></textarea>
+                </fieldset>
+            </form>
+        </div>
+    </aside>
+    
+    
     <main>
-        <div id="hand1" class="hand">
+        <div id="hand_1" class="hand">
             Hand1
         </div>
         <div id="battlefield">
             Battlefield
         </div>
-        <div id="hand2" class="hand">
+        <div id="hand_2" class="hand">
             Hand2
         </div>
     </main>
 
-
+    <div id="game_side">
+        <p>Game side</p>
+    </div>
 
     <footer id="game_footer">
         <p>footer</p>
@@ -113,12 +144,11 @@
     <p>Fire Water Wind Earth Metal Darkness</p>
 </div>
 
-    <aside>
-        <a id="githublink" href="https://github.com/GrosSacASac/FWWE">Go to Github</a>
-    </aside>
-<script src="js/soldier_cards.js" type="text/javascript"></script>
-<script src="js/spell_cards.js" type="text/javascript"></script>
-<script src="js/mana_source_cards.js" type="text/javascript"></script>
+    
+<script src="js/cards/soldier_cards.js" type="text/javascript"></script>
+<script src="js/cards/spell_cards.js" type="text/javascript"></script>
+<script src="js/cards/mana_source_cards.js" type="text/javascript"></script>
+<script src="js/init.js" type="text/javascript"></script>
 <script src="js/custom.js" type="text/javascript"></script>
 </body>
 </html>

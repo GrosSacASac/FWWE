@@ -128,7 +128,9 @@ Objects can be in the following fields, the number is the maximum size, number +
 
 ##Technical architecture
 
-To support multi-player we will use a dynamic server that will make the link between the two players. The same game will run simultaneously on clients (browsers) and server. Every time a player makes an action the it will be checked
+###Multi-player
+
+To support multi-player we will use a dynamic server that will make the link between the two players. The same game will run simultaneously on clients (browsers) and server. Every time a player makes an action the it will be checked.
 
 1. client-side
 2. server-side if 1. passes
@@ -136,9 +138,51 @@ To support multi-player we will use a dynamic server that will make the link bet
 4. Whenever a confirmation message is sent or received the action will take place
 5. on client sides, wait for next action
 
-That way the clients cannot make actions that are not allowed in the untouchable server rules even if they changes the local JavaScript.
+That way the clients cannot make actions that are not allowed in the untouchable server rules even if they changes the local JavaScript. In fact clients will be servers too because they will wait for the other client to decide what action they do. I said that the same game will run on all machines but in reality it is wrong: The client_a will only have information about what he can see, and the server will know every cards
 
-More details are coming here soon !
+###Technologies and platforms
+
+We use the combination of __modern HTML + CSS + JS__ for client side and JS+[to be decided] on server side.
+That way we can distribute our game with a single URL and it will be accessible on almost any device. At first we will focus on future __desktop browser__, but later we can optimize the CSS for optimal use on Phones, tablets, tv and more.
+
+###Inner Architecture
+
+The core programm is separated on view and model, that means we store __all__ data essential for the game in raw JavaScript variables and perhaps we copy some of these in the DOM so that players can see their cards. Some setter on JS variables will call view setter that will change the DOM.
+
+####Example
+```
+hand.receive_new_card = function(the_new_card) {
+    if hand.length < hand.limit {
+        hand.push(the_new_card);
+        view.hand.receive_new_card(the_new_card);//show player his new card and put it in his hand 
+    }
+    else {
+        view.hand.animation_lost_card(the_new_card);
+    }
+};
+
+var draw = function() {
+    newest_card = deck.pop_last();
+    if newest_card {
+        view.draw();
+        hand.receive_new_card(newest_card);
+    }
+};
+```
+###Card manipulation
+
+All cards are stored in static files in js/cards/soldier_cards.js and js/cards/soldier_cards.js and ...
+But at the end there will be 1 big object containing all cards: var CARDS
+You can access any individual card anytime with `CARDS["card_type"][number]`
+You can access any individual card property anytime with `CARDS["card_type"][number]["property_key"]`
+
+But when a card is called into the game we clone the original card into a living card who can loose live points, win attack power and so on (We wouldn't even think about modifying the original, right ?). At the end the clone will have much more properties (like attack_modifier) and will be stored in a non static collection of cards in-game called `living_cards`
+
+To create a living card from a static card we call a function `living = living_from_original(original);`
+As we store all cards in the Array living_cards we'll use this to create a new card:
+`living_cards.push(living_from_original(original));`
+
+_More details are coming here soon !_
 
 
 
@@ -148,14 +192,19 @@ More details are coming here soon !
 Construction is the game under construction with the latest upgrades. Production is the game that is playable with all testing and optimizing done. There will be no production version until the first beta.
 
 ###Cycles
-1. [Construction](#construction)
+1. Construction
     1. Change file(s)
     2. Commit changes
     3. Go to 1.
-2. [Production](#production)
+2. Production
     1. Copy the construction branch
     2. Make sure all tests pass
+        * [Microsof Site Scan](http://modern.ie/en-us)
+        * [W3C HTML Markup Validation Service](http://validator.w3.org/)
+        * [JavaScript check with jslint](http://jslint.com/)
     3. Reduce the size of all medias to optimize speed
+        * [CSS minifier](http://cssminifier.com/)
+        * [Yslow rules](https://developer.yahoo.com/performance/rules.html)
     4. Minify all text files
     5. Send to the public servers
     6. Wait until the construction branch has made significant changes and go to 1.
