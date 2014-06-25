@@ -5,91 +5,68 @@ var VERSION = 0.02,
         "spell": spell_cards,
         "source": mana_source_cards
         },
-    CARD_CONTAINER_PROTO = Object.create(HTMLDivElement.prototype),
-    SOLDIER_CARD_PROTO = Object.create(HTMLDivElement.prototype),
-    SPELL_CARD_PROTO = Object.create(HTMLDivElement.prototype),
-    MANA_SOURCE_CARD_PROTO = Object.create(HTMLDivElement.prototype),
     living_cards = [],
-    mouse_position = document.getElementById("mouse_position"),
-    deck_builder = document.getElementById("deck_builder"),
+    living_card_constructor = function() {
+        this["selected"] = false;
+        this["cost"] = "0";
+        this["card_name"] = "";
+        this["foto"] = "";
+        this["types"] = [];
+        this["subtypes"] = [];
+        this["effects"] = [];
+        this["description"] = "";
+        this["attack"] = 0;
+        this["speed"] = 0;
+        this["regeneration"] = 0;
+        this["defense"] = 0;
+        },
     card_count = 0,
     card_hovered = 0;
 
 var living_from_original = function(original) {
     //
 };
-document.getElementById("create_new_deck").addEventListener('mousedown', function(event) {
-    deck_builder.classList.toggle('hidden');
-},false );
-document.addEventListener('mousemove', function(event){
-    mouse_position.innerHTML = "Mouse x: " + event.clientX + "; y " + event.clientY;
-},false);
 
-/*
-CARD_PROTO.whenCreated = function () {
-    return false;
-};*/
+
+
+function get_living_card_prop (i, key) {
+    return living_cards[i][key];
+}
+
+function set_living_card_prop (i, key, value) {
+    living_cards[i][key] = value;
+    if (key === "selected") {
+        view["cards_set_selected"](i,value);
+    }
+}
+
 function click_card(event){
-    console.log(event.currentTarget); 
+    var n = event.currentTarget.id,
+        length = living_cards.length,
+        i = 0;
+    ; 
+    if (get_living_card_prop (n, "selected") === false) {
+        for (; i < length; i++) {
+            if (get_living_card_prop (i, "selected") === true) {
+                set_living_card_prop (i, "selected", false);
+            }
+            
+        set_living_card_prop (n, "selected", true);
+        }
+    }
+    else {
+        set_living_card_prop (n, "selected", false);
+        console.log("...");
+    }
 };
 
-CARD_CONTAINER_PROTO.whenCreated = function () {
-    var clone = document.importNode(document.querySelector('#card_container').content, true);
-    this.setAttribute("class","zoom");
-    this.setAttribute("contextmenu","details");
-    this.id = card_count.toString();
-    this.addEventListener('mousedown',click_card,false );
-    this.appendChild(clone);
-};
 
 
-;
-SOLDIER_CARD_PROTO.whenCreated = function () {
-    var clone = document.importNode(document.querySelector('#soldier_structure').content, true);
-    this.setAttribute("class","face");
-    this.appendChild(clone);
-};
-SPELL_CARD_PROTO.whenCreated = function () {
-    var clone = document.importNode(document.querySelector('#spell_structure').content, true);
-    this.setAttribute("class","face");
-    this.appendChild(clone);
-};
-MANA_SOURCE_CARD_PROTO.whenCreated = function () {
-    var clone = document.importNode(document.querySelector('#mana_source_structure').content, true);
-    this.setAttribute("class","face");
-    this.appendChild(clone);
-};
-//CARD_PROTO.created = CARD_PROTO.whenCreated;
-//CARD_PROTO.createdCallback = CARD_PROTO.whenCreated;
-/*
-other natural methods waiting for more browser support
-attachedCallback
-detachedCallback
-createdCallback instead of whenCreated
-*/
 
-//Register
-
-var CardContainer = document.registerElement('card-container', {
-    prototype: CARD_CONTAINER_PROTO,
-    extends: 'div'
-});
-
-var SOLDIER_CARD = document.registerElement('soldier-card', {
-    prototype: SOLDIER_CARD_PROTO,
-    extends: 'div'
-});
-var SPELL_CARD = document.registerElement('spell-card', {
-    prototype: SPELL_CARD_PROTO,
-    extends: 'div'
-});
-var MANA_SOURCE_CARD = document.registerElement('mana-source-card', {
-    prototype: MANA_SOURCE_CARD_PROTO,
-    extends: 'div'
-});
 
 var new_card = function (card_type,stats) {
-    var card = new card_type(),
+    var new_living_card = new living_card_constructor(),
+        card = new card_type(),
         card_container = new CardContainer(),
         value,
         property_container,
@@ -98,7 +75,9 @@ var new_card = function (card_type,stats) {
         i,
         item,
         li;
-    card_count++;
+        
+    
+     
     console.log("creating a new card");
     card_container.whenCreated();
     card.whenCreated();
@@ -107,6 +86,7 @@ var new_card = function (card_type,stats) {
     for (key in stats) {
         if (stats.hasOwnProperty(key)) {
             value = stats[key];
+            new_living_card[key] = value;
             property_container = card.querySelector("." + key);
             if (value instanceof Array) {
                 len = value.length;
@@ -127,17 +107,7 @@ var new_card = function (card_type,stats) {
             }
         }
     }
+    living_cards.push(new_living_card)
+    card_count++;
     return card_container;
-};
-var flip_container = function(card_container) {
-    card_container.classList.toggle('hidden');
-};
-var show_description = function(){
-    /*
-    
-    console.log("#" + document.card_hovered + " .description");
-    console.log(document.querySelector( "#" + document.card_hovered + " .description"));
-    alert(document.querySelector("#" + document.card_hovered + " .description").innerHTML.toString());
-    */
-    alert("Come back later");
 };
