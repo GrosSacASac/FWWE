@@ -21,4 +21,4 @@
 
 1. Download Firefox [Aurora](http://www.mozilla.org/en-US/firefox/channel/#aurora) to have a try 
 2. In about:config, set dom.webcomponents.enabled to true !
-3. open index.html
+3. open [client/index.html](http://rawgit.com/GrosSacASac/FWWE/master/client/index.html)

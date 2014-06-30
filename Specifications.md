@@ -138,7 +138,7 @@ To support multi-player we will use a dynamic server that will make the link bet
 4. Whenever a confirmation message is sent or received the action will take place
 5. on client sides, wait for next action
 
-That way the clients cannot make actions that are not allowed in the untouchable server rules even if they changes the local JavaScript. In fact clients will be servers too because they will wait for the other client to decide what action they do. I said that the same game will run on all machines but in reality it is wrong: The client_a will only have information about what he can see, and the server will know every cards
+That way the clients cannot make actions that are not allowed in the untouchable server rules even if they changes the local JavaScript. In fact clients will be servers too because they will wait for the other client to decide what action they do and respond by their presence. We'll use websockets for the two-way comunication. I said that the same game will run on all machines but in reality it is wrong: The client_a will only have information about what he can see, and the server will know every cards
 
 ###Technologies and platforms
 
@@ -207,6 +207,7 @@ Construction is the game under construction with the latest upgrades. Production
         * [Yslow rules](https://developer.yahoo.com/performance/rules.html)
     4. Minify all text files
     5. Send to the public servers
+        * Perhaps Use browserify and grunt to automate this tasks
     6. Wait until the construction branch has made significant changes and go to 1.
 
 ###File naming
