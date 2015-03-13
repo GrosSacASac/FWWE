@@ -1,23 +1,103 @@
 @charset "UTF-8";
 
-div.zoom:hover{
-    background-color: #ccffcc;
-    width:213px;
-    height:347px;
-    transform:rotate(0deg);
-}
 
 /*CARD CONTAINER*/
-div[is="fwwe-cardcontainer"]{
-    width:160px;
-    height:260px;
+#game_header{
+
+    width:80%;
+    height:5%;
+    position:absolute;
+    top:0%;
+    background-color:#aabbee;
+}
+
+#game_header>*{
+    text-transform: capitalize;
+    display:inline;
+}
+
+#game_footer{
+    width:80%;
+    height:5%;
+    position:absolute;
+    bottom:0%;
+    background-color:#aabbee;
+}
+
+#game_footer>*{
+    display:inline;
+    }
+
+#battlefield{
+    position:absolute;
+    width:80%;
+    height:50%;
+    background-color:#ccc;
+    top:25%;
+}
+
+
+#hand_1{
+    top:5%;
+}
+    
+#hand_2{
+    bottom:5%;
+}
+    
+    
+#deck_builder{
+    position:fixed;
+    z-index:15;
+    top:7%;
+    width:80%;
+    height:90%;
+    left:10%;
+    background-color:#102f35;
+}
+
+#deck_builder.hidden{
+    top:-100%;
+}
+
+
+#game_side{
+    position:absolute;
+    width:15%;
+    height:100%;
+    left:81%;
+    background-color:#442211;
+    top:0%;
+}
+
+.hand{
+    position:absolute;
+    width:80%;
+    height:20%;
+    background-color:#ddcc88;
+}
+
+div[is="card-container"].selected{
+    border-color:green;
+    z-index:12;
+    border-width:4px;
+    transition:0s;
+}
+
+div[is="card-container"]{
+    width:8%;
+    height:100%;
     border-style:solid;
     border-width:2px;
     border-radius:1em;
+    position:absolute; 
 	cursor:pointer;
     display:inline-block;
+    vertical-align: top;
+    bottom:0;
 }
 
+<<<<<<< HEAD
 div[is="fwwe-cardcontainer"]>img{
     position:absolute;
 }
@@ -39,28 +119,64 @@ div[is="fwwe-cardcontainer"].visible .face{
 
 div[is="fwwe-cardcontainer"].hidden .face{
     transition:0.25s steps(1);
+=======
+div[is="card-container"].zoom:not(.hidden):not(.selected):hover{
+    background-color: #ccffcc;
+    width:24%;
+    height:300%;/*
+    bottom:200%;*/
+    transform:rotate(0deg);
+    
+}
+
+div[is="card-container"]>img{
+    position:absolute;
+    border-radius:1em;
+    top:auto;
+    bottom:auto;
+    width:100%;
+    height:100%;
+}
+
+div[is="card-container"].hidden{
+    transform:  rotateY(180deg) ;
+}
+div[is="card-container"] .back{
+    transition:opacity 0.25s steps(1);
+    opacity:0;
+}
+div[is="card-container"].hidden .back{
+    opacity:1;
+}
+div[is="card-container"] .face{
+    transition:opacity 0.25s steps(1);
+    opacity:1;
+}
+
+div[is="card-container"].hidden .face{
+>>>>>>> origin/master
     opacity:0;
 }
 
 /*CARD*/
-div[is="fwwe-card"] {
+div[is$="card"] {
     display:block;
     /*position:absolute;*/
     width:100%;
     height:100%;
 }
 
-div[is="fwwe-card"] * {
+div[is$="card"] * {
     font-size:0.8em;
     color: blue;
     width:100%
 }
 
-div[is="fwwe-card"] div.top{
+div[is$="card"] div.top{
     height:7%;
 }
 
-div[is="fwwe-card"] .cost {
+div[is$="card"] .cost {
     opacity:0;
     display:inline;
 }
@@ -70,7 +186,7 @@ div.zoom:hover .cost{
     opacity:1;
 }
 
-div[is="fwwe-card"] h1 {
+div[is$="card"] h1 {
     text-transform: capitalize;
     font-size: 1em;
     font-family:"Verdana";
@@ -82,19 +198,20 @@ div[is="fwwe-card"] h1 {
 
 div.zoom:hover h1{
     font-size:1.3em;
+    text-shadow:2px 2px 0px rgba(110,40,255,0.6)
 }
 
 
-div[is="fwwe-card"] img {
+div[is$="card"] img {
     height:60%;
     border-radius:0.7em;
     border-width:1px;
 }
 
 
-div[is="fwwe-card"] div.typebanner{
+div[is$="card"] div.typebanner{
     height:7%;
-    background-color:#fbb;
+    background-color:#e7f9f3;
     display:block;
     opacity:0;
 }
@@ -103,37 +220,37 @@ div.zoom:hover div.typebanner{
     opacity:1;
 }
 
-div[is="fwwe-card"] div.typebanner>ul {
+div[is$="card"] div.typebanner>ul {
     display:inline;
 }
-div[is="fwwe-card"] div.typebanner>ul>li {
+div[is$="card"] div.typebanner>ul>li {
     display:inline;
     color:#333;
 }
 
-div[is="fwwe-card"] div.typebanner>ul.types li {
+div[is$="card"] div.typebanner>ul.types li {
     color: #111;
     font-weight:bold;
     font-size:1em;
 }
 
-div[is="fwwe-card"] div.typebanner>ul.types:after {
+div[is$="card"] div.typebanner>ul.types:after {
     color: #111;
     font-weight:bold;
     content:": ";
 }
 
-div[is="fwwe-card"] ul.subtypes>li:after {
+div[is$="card"] ul.subtypes>li:after {
     color:#333;
     content:", ";
 }
-div[is="fwwe-card"] ul.subtypes>li:last-of-type:after {
+div[is$="card"] ul.subtypes>li:last-of-type:after {
     color:#333;
     content:"";
 }
 
 
-div[is="fwwe-card"] ul.effects {
+div[is$="card"] ul.effects {
     display:block;
     height:19%;
     opacity:0;
@@ -143,12 +260,12 @@ div.zoom:hover ul.effects{
     opacity:1;
 }
 
-div[is="fwwe-card"] ul.effects>li{
+div[is$="card"] ul.effects>li{
     
     display:inline;
 }
 
-div[is="fwwe-card"] p.description {
+div[is$="card"] p.description {
     display:none;
     opacity:0;
     font-style:italic;
@@ -161,12 +278,12 @@ div.zoom:hover p.description {
     
 }
 */
-div[is="fwwe-card"] div.numbers {
+div[is$="card"] div.numbers {
     height:7%;
     display:block;
 }
 
-div[is="fwwe-card"] div.numbers>*{
+div[is$="card"] div.numbers>*{
     display:inline;
     margin-left:7%;
     margin-right:7%;

@@ -10,4 +10,8 @@ var soldier_cards=[{
     "speed":1,
     "regeneration":0,
     "defense":2}
+<<<<<<< HEAD:client/js/cards/soldier_cards.js
     ];
+=======
+    ];
+>>>>>>> origin/master:client/js/cards/soldier_cards.js
