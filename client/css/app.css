@@ -18,23 +18,34 @@ div[is="fwwe-cardcontainer"]{
     display:inline-block;
 }
 
+div[is="fwwe-cardcontainer"]>img{
+    position:absolute;
+}
+div[is="fwwe-cardcontainer"].hidden{
+    transform: perspective(800px) rotateY(180deg) translate3d(0px, 0px, 2px);
+}
 div[is="fwwe-cardcontainer"].visible .back{
-    display:none;
+    transition:0.25s steps(1);
+    opacity:0;
 }
 div[is="fwwe-cardcontainer"].hidden .back{
-    display:inline-block;
+    transition:0.25s steps(1);
+    opacity:1;
 }
 div[is="fwwe-cardcontainer"].visible .face{
-    display:inline-block;
+    transition:0.25s steps(1);
+    opacity:1;
 }
 
 div[is="fwwe-cardcontainer"].hidden .face{
-    display:none;
+    transition:0.25s steps(1);
+    opacity:0;
 }
 
 /*CARD*/
 div[is="fwwe-card"] {
     display:block;
+    /*position:absolute;*/
     width:100%;
     height:100%;
 }
