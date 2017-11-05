@@ -97,7 +97,6 @@ div[is="card-container"]{
     bottom:0;
 }
 
-<<<<<<< HEAD
 div[is="fwwe-cardcontainer"]>img{
     position:absolute;
 }
@@ -119,7 +118,8 @@ div[is="fwwe-cardcontainer"].visible .face{
 
 div[is="fwwe-cardcontainer"].hidden .face{
     transition:0.25s steps(1);
-=======
+}
+
 div[is="card-container"].zoom:not(.hidden):not(.selected):hover{
     background-color: #ccffcc;
     width:24%;
@@ -154,7 +154,6 @@ div[is="card-container"] .face{
 }
 
 div[is="card-container"].hidden .face{
->>>>>>> origin/master
     opacity:0;
 }
 
